@@ -1,33 +1,21 @@
+# --------------------------------------------------------
+# AWS Region (used in provider block)
+# --------------------------------------------------------
 variable "aws_region" {
-  type        = string
   description = "AWS region to deploy resources"
+  type        = string
   default     = "us-east-1"
 }
 
+# --------------------------------------------------------
+# Environment & Business Division Info
+# --------------------------------------------------------
+
+# Logical environment name (used in tags and resource names)
 variable "environment_name" {
   description = "Environment name used in resource names and tags"
   type        = string
   default     = "dev"
-}
-
-variable "vpc_cidr" {
-  description = "VPC CIDR block for VPC"
-  default     = "10.0.0.0/16"
-  type        = string
-}
-
-variable "subnet_newbits" {
-  description = "Number of new bits to add to VPC CIDR to generate subnets (e.g., 8 means /24 from /16)"
-  type        = number
-  default     = 8
-}
-
-variable "tags" {
-  description = "Global tags to apply to all resources"
-  type        = map(string)
-  default = {
-    Terraform = "true"
-  }
 }
 
 # Business unit or department (used in tags and naming)
@@ -84,6 +72,19 @@ variable "cluster_endpoint_public_access_cidrs" {
 }
 
 # --------------------------------------------------------
+# Common Tags
+# --------------------------------------------------------
+
+# Tags applied to all resources created by this configuration
+variable "tags" {
+  description = "Tags to apply to EKS and related resources"
+  type        = map(string)
+  default     = {
+    Terraform = "true"
+  }
+}
+
+# --------------------------------------------------------
 # EKS Node Group Configuration
 # --------------------------------------------------------
 
@@ -107,3 +108,4 @@ variable "node_disk_size" {
   type        = number
   default     = 20
 }
+
