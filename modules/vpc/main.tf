@@ -7,7 +7,7 @@ resource "aws_vpc" "main" {
     prevent_destroy = false
   }
 }
-
+#IGW
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main.id
   tags   = merge(var.tags, { Name = "${var.environment_name}-vpc" })
