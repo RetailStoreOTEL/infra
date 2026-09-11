@@ -91,7 +91,7 @@ variable "cluster_endpoint_public_access_cidrs" {
 variable "node_instance_types" {
   description = "List of EC2 instance types for the node group"
   type        = list(string)
-  default     = ["t3.medium"]
+  default     = ["c7i-flex.large"]
 }
 
 # Capacity type for node group (ON_DEMAND or SPOT)
