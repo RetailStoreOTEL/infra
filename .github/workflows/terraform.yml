@@ -75,7 +75,6 @@ jobs:
         id: plan
         run: |
           terraform plan \
-            -var="github_org=${{ vars.GH_ORG }}" \
             -out=tfplan \
             -no-color
         continue-on-error: true
