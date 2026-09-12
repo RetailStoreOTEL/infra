@@ -7,8 +7,6 @@ module "vpc" {
   tags             = var.tags
 }
 
-
-# Importing eks module
 # module "eks" {
 #   source = "../../modules/eks"
 
