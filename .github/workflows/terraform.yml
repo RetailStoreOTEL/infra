@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'env/dev/**'
+      - 'envs/dev/**'
       - 'modules/**'
   pull_request:
     branches: [main]
